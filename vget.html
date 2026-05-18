@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - VGet</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #222;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .lang-switcher {
+            text-align: right;
+            margin-bottom: 15px;
+        }
+        /* Hide all language blocks by default */
+        .lang-block {
+            display: none;
+        }
+        /* Show the active language block */
+        .lang-block:target,
+        .lang-block.active {
+            display: block;
+        }
+    </style>
+    <script>
+        function showLanguage(lang) {
+            // Hide all language blocks
+            document.querySelectorAll('.lang-block').forEach(function(el) {
+                el.style.display = 'none';
+                el.classList.remove('active');
+            });
+            // Show the selected language block
+            const targetElement = document.getElementById(lang);
+            if (targetElement) {
+                targetElement.style.display = 'block';
+                targetElement.classList.add('active');
+            }
+            // Update the document's lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Set the default language when the page loads
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // If a language is specified in the URL hash, use it. Otherwise, default to English.
+            const initialLang = window.location.hash ? window.location.hash.substring(1) : 'en';
+            showLanguage(initialLang);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <a href="#en" onclick="showLanguage('en')">English</a> | 
+            <a href="#pt" onclick="showLanguage('pt')">Português</a>
+        </div>
+
+        <!-- English Version -->
+        <div id="en" class="lang-block active">
+            <h1>VGet Privacy Policy</h1>
+            <p><strong>Last updated:</strong> July 24, 2024</p>
+
+            <p>Welcome to VGet. Your privacy is important to us. This Privacy Policy explains what information we collect, how we use it, and your choices regarding that information.</p>
+
+            <h2>1. Information We Collect</h2>
+            <p>We collect minimal information to operate and improve our application.</p>
+            
+            <h3>a. Information you provide directly:</h3>
+            <ul>
+                <li><strong>Video URLs:</strong> The application processes the video URLs you enter to download the corresponding content. These URLs are not stored on our servers and are used only at the time of download.</li>
+            </ul>
+
+            <h3>b. Information collected automatically:</h3>
+            <ul>
+                <li>
+                    <strong>Usage Analytics Data:</strong> We use Firebase Analytics (a Google service) to understand how users interact with the application. This helps us identify bugs and enhance the user experience. The information collected includes:
+                    <ul>
+                        <li>Interaction events, such as the start of a download (<code>download_started</code>).</li>
+                        <li>The title of the downloaded video, anonymously, to understand the most popular types of content.</li>
+                        <li>General device information, such as model, operating system, and anonymous application instance identifiers.</li>
+                    </ul>
+                    This data collection is for aggregated statistical purposes and does not identify you personally.
+                </li>
+            </ul>
+
+            <h2>2. How We Use Information</h2>
+            <p>We use the collected information for the following purposes:</p>
+            <ul>
+                <li><strong>To provide the core functionality:</strong> We use the URL you provide to fetch video information, download the audio and video files, and merge them into a single media file on your device.</li>
+                <li><strong>To save files on your device:</strong> The application saves downloaded videos to your device's public Downloads directory, accessible by you at any time.</li>
+                <li><strong>To improve the application:</strong> Analytics data helps us understand which features are most used and how we can improve the stability and functionality of VGet.</li>
+            </ul>
+
+            <h2>3. Information Sharing</h2>
+            <p>We do not sell or rent your personal information. Sharing is limited to the following scenarios:</p>
+            <ul>
+                <li><strong>Service Providers:</strong> We share data with third-party services that help us operate the application, specifically:
+                    <ul>
+                        <li><strong>Google (Firebase Analytics):</strong> For usage analysis. Google's privacy policy can be viewed <a href="https://policies.google.com/privacy">here</a>.</li>
+                        <li><strong>Video Hosting Services (e.g., YouTube, Vimeo):</strong> The URL you enter is, by technical necessity, sent to the respective video service via the <code>yt-dlp</code> library to obtain the download links for the media streams.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>4. Data Storage and Security</h2>
+            <ul>
+                <li><strong>Local Storage:</strong> Downloaded videos are stored exclusively on your device. You have full control over these files and can move or delete them.</li>
+                <li><strong>Temporary Data:</strong> During the download process, the application may temporarily store parts of the video (separate audio and video streams) in the application's cache directory. These temporary files are automatically deleted after the download is successfully completed or canceled.</li>
+            </ul>
+
+            <h2>5. Third-Party Services and Libraries</h2>
+            <p>VGet relies on the following open-source tools and third-party services for its functionality:</p>
+            <ul>
+                <li><strong>YoutubeDL-Android (yt-dlp):</strong> Used to extract video information and download links from a URL.</li>
+                <li><strong>FFmpeg-Kit:</strong> Used to merge audio and video streams into a single MP4 file.</li>
+                <li><strong>Firebase Analytics:</strong> For collecting anonymous usage data.</li>
+            </ul>
+            
+            <h2>6. Your Rights and Choices</h2>
+            <p>You have full control over your downloaded files. They are located in your device's Downloads folder and can be managed like any other personal file.</p>
+
+            <h2>7. Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+
+            <h2>8. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:dl02071988@gmail.com">dl02071988@gmail.com</a> (this is an example email; please replace it with a real one if applicable).</p>
+        </div>
+
+        <!-- Portuguese Version -->
+        <div id="pt" class="lang-block">
+            <h1>Política de Privacidade do VGet</h1>
+            <p><strong>Última atualização:</strong> 24 de julho de 2024</p>
+
+            <p>Bem-vindo ao VGet. Sua privacidade é importante para nós. Esta Política de Privacidade explica quais informações coletamos, como as usamos e suas opções em relação a essas informações.</p>
+
+            <h2>1. Informações que Coletamos</h2>
+            <p>Coletamos informações mínimas para operar e melhorar nosso aplicativo.</p>
+            
+            <h3>a. Informações que você nos fornece diretamente:</h3>
+            <ul>
+                <li><strong>URLs de Vídeo:</strong> O aplicativo processa os URLs de vídeo que você insere para baixar o conteúdo correspondente. Esses URLs não são armazenados em nossos servidores, sendo usados apenas no momento do download.</li>
+            </ul>
+
+            <h3>b. Informações coletadas automaticamente:</h3>
+            <ul>
+                <li>
+                    <strong>Dados de Análise de Uso:</strong> Usamos o Firebase Analytics (um serviço do Google) para entender como os usuários interagem com o aplicativo. Isso nos ajuda a identificar bugs e aprimorar a experiência. As informações coletadas incluem:
+                    <ul>
+                        <li>Eventos de interação, como o início de um download (<code>download_started</code>).</li>
+                        <li>O título do vídeo baixado, de forma anônima, para entender os tipos de conteúdo mais populares.</li>
+                        <li>Informações gerais do dispositivo, como modelo, sistema operacional e identificadores anônimos de instância do aplicativo.</li>
+                    </ul>
+                    Esta coleta de dados é para fins estatísticos agregados e não o identifica pessoalmente.
+                </li>
+            </ul>
+
+            <h2>2. Como Usamos as Informações</h2>
+            <p>Utilizamos as informações coletadas para as seguintes finalidades:</p>
+            <ul>
+                <li><strong>Para fornecer a funcionalidade principal:</strong> Usamos a URL fornecida por você para buscar as informações do vídeo, baixar os arquivos de áudio e vídeo e combiná-los em um único arquivo de mídia no seu dispositivo.</li>
+                <li><strong>Para salvar arquivos no seu dispositivo:</strong> O aplicativo salva os vídeos baixados no diretório público de Downloads do seu dispositivo, acessível por você a qualquer momento.</li>
+                <li><strong>Para melhorar o aplicativo:</strong> Os dados de análise nos ajudam a entender quais recursos são mais usados e como podemos melhorar a estabilidade e a funcionalidade do VGet.</li>
+            </ul>
+
+            <h2>3. Compartilhamento de Informações</h2>
+            <p>Não vendemos nem alugamos suas informações pessoais. O compartilhamento é limitado aos seguintes cenários:</p>
+            <ul>
+                <li><strong>Provedores de Serviço:</strong> Compartilhamos dados com serviços de terceiros que nos ajudam a operar o aplicativo, especificamente:
+                    <ul>
+                        <li><strong>Google (Firebase Analytics):</strong> Para análise de uso. A política de privacidade do Google pode ser consultada <a href="https://policies.google.com/privacy">aqui</a>.</li>
+                        <li><strong>Serviços de Hospedagem de Vídeo (ex: YouTube, Vimeo):</strong> A URL que você insere é, por necessidade técnica, enviada ao respectivo serviço de vídeo através da biblioteca <code>yt-dlp</code> para obter os links de download dos streams de mídia.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>4. Armazenamento e Segurança de Dados</h2>
+            <ul>
+                <li><strong>Armazenamento Local:</strong> Os vídeos baixados são armazenados exclusivamente no seu dispositivo. Você tem controle total sobre esses arquivos, podendo movê-los ou excluí-los.</li>
+                <li><strong>Dados Temporários:</strong> Durante o processo de download, o aplicativo pode armazenar temporariamente partes do vídeo (streams de áudio e vídeo separados) no diretório de cache do aplicativo. Esses arquivos temporários são excluídos automaticamente após a conclusão bem-sucedida ou o cancelamento do download.</li>
+            </ul>
+
+            <h2>5. Serviços e Bibliotecas de Terceiros</h2>
+            <p>O VGet depende das seguintes ferramentas de código aberto e serviços de terceiros para sua funcionalidade:</p>
+            <ul>
+                <li><strong>YoutubeDL-Android (yt-dlp):</strong> Usado para extrair informações de vídeo e links de download a partir de uma URL.</li>
+                <li><strong>FFmpeg-Kit:</strong> Usado para combinar os fluxos de áudio e vídeo em um único arquivo MP4.</li>
+                <li><strong>Firebase Analytics:</strong> Para coleta de dados de uso anônimos.</li>
+            </ul>
+            
+            <h2>6. Seus Direitos e Escolhas</h2>
+            <p>Você tem total controle sobre os arquivos baixados. Eles estão localizados na pasta de Downloads do seu dispositivo e podem ser gerenciados como qualquer outro arquivo pessoal.</p>
+
+            <h2>7. Alterações a esta Política de Privacidade</h2>
+            <p>Podemos atualizar nossa Política de Privacidade de tempos em tempos. Recomendamos que você revise esta página periodicamente para quaisquer alterações. Notificaremos sobre quaisquer alterações publicando a nova Política de Privacidade nesta página.</p>
+
+            <h2>8. Contate-nos</h2>
+            <p>Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco pelo e-mail: <a href="mailto:dl02071988@gmail.com">dl02071988@gmail.com</a> (este é um e-mail de exemplo, por favor, substitua por um real, se aplicável).</p>
+        </div>
+    </div>
+</body>
+</html>
